@@ -1,5 +1,5 @@
 """
-Tic-Tac-Toe Game - Initial Setup
+Tic-Tac-Toe Game - Basic Two Player Game
 """
 
 import random
@@ -34,5 +34,74 @@ def show_board():
     print("\n")
 
 
-# Test the board display
-show_board()
+def check_winner():
+    """Check if someone has won"""
+    for combo in winning_combinations:
+        if board[combo[0]] == board[combo[1]] == board[combo[2]] != ' ':
+            return True
+    return False
+
+
+def is_board_full():
+    """Check if board is full"""
+    for spot in board:
+        if spot == ' ':
+            return False
+    return True
+
+
+def play_game():
+    """Main game function"""
+    print("\n🎮 TIC-TAC-TOE GAME 🎮")
+    print("Player 1 is X, Player 2 is O\n")
+    
+    current_player = 'X'
+    game_over = False
+    
+    while not game_over:
+        show_board()
+        
+        print(f"Player {current_player}'s turn")
+        
+        valid_move = False
+        while not valid_move:
+            row = input("Choose a row (1-3): ")
+            col = input("Choose a column (1-3): ")
+            
+            if not row.isdigit() or not col.isdigit():
+                print("❌ Please enter numbers!")
+                continue
+            
+            row = int(row)
+            col = int(col)
+            
+            if row < 1 or row > 3 or col < 1 or col > 3:
+                print("❌ Please choose numbers between 1 and 3!")
+                continue
+            
+            position = (row - 1) * 3 + (col - 1)
+            
+            if board[position] != ' ':
+                print("❌ That spot is already taken!")
+                continue
+            
+            board[position] = current_player
+            valid_move = True
+        
+        if check_winner():
+            show_board()
+            print(f"🎉 Player {current_player} wins! 🎉")
+            game_over = True
+        elif is_board_full():
+            show_board()
+            print("🤝 It's a draw! 🤝")
+            game_over = True
+        else:
+            if current_player == 'X':
+                current_player = 'O'
+            else:
+                current_player = 'X'
+
+
+# Start the game
+play_game()
