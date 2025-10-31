@@ -16,10 +16,8 @@ Requirements:
 Python 3.6 or higher
 No external libraries required
 
-How to Run:
-python3 tic_tac_toe.py
-On Windows:
-python tic_tac_toe.py
+How to Run: 
+On the code editor press run and wait around 5 seconds. teh game menu should come up on the terminal.
 
 How to Play:
 Main Menu
