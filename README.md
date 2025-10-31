@@ -17,7 +17,7 @@ Python 3.6 or higher
 No external libraries required
 
 How to Run: 
-On the code editor press run and wait around 5 seconds. teh game menu should come up on the terminal.
+On the code editor press run and wait around 5 seconds. The game menu should come up on the terminal.
 
 How to Play:
 Main Menu
